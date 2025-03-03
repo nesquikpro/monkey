@@ -1,13 +1,13 @@
 package com.monkey.monkey.commands;
 
-import com.monkey.monkey.keybinds.AutoSprintHandler;
+import com.monkey.monkey.keybinds.SprintHandler;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 
 public class SprintCommand extends CommandBase {
-    private final AutoSprintHandler sprintHandler;
+    private final SprintHandler sprintHandler;
 
-    public SprintCommand(AutoSprintHandler sprintHandler) {
+    public SprintCommand(SprintHandler sprintHandler) {
         this.sprintHandler = sprintHandler;
     }
 
