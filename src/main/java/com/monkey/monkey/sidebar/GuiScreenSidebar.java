@@ -1,16 +1,16 @@
 package com.monkey.monkey.sidebar;
 
-import com.monkey.monkey.ModManager;
+import com.monkey.monkey.Manager;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.scoreboard.ScoreObjective;
 
 
 public class GuiScreenSidebar extends GuiScreen {
-    protected ModManager mod;
+    protected Manager mod;
     protected GuiSidebar sidebar;
 
-    public GuiScreenSidebar(ModManager mod) {
+    public GuiScreenSidebar(Manager mod) {
         this.mod = mod;
         this.sidebar = mod.getSidebarGui();
     }

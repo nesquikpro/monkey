@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 import java.util.Set;
 
-public class kfsk {
+public class KnifeSkins {
     private static final Set<Item> kfSk = Sets.newHashSet(
             Items.iron_sword, Items.stone_sword, Items.wooden_sword, Items.golden_sword, Items.diamond_sword,
             Items.iron_shovel, Items.stone_shovel, Items.diamond_shovel, Items.golden_shovel,

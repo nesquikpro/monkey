@@ -1,12 +1,12 @@
 package com.monkey.monkey.commands;
 
-import com.monkey.monkey.mm.monkey;
+import com.monkey.monkey.mm.MM;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
-public class MMCommand extends CommandBase {
+public class CommandMM extends CommandBase {
     @Override
     public String getCommandName() {
         return "monkey";
@@ -28,7 +28,7 @@ public class MMCommand extends CommandBase {
     }
 
     public static String getMonkey() {
-        monkey.isMonkey = !monkey.isMonkey;
-        return monkey.isMonkey ? "monkey" : "";
+        MM.isMonkey = !MM.isMonkey;
+        return MM.isMonkey ? "monkey" : "";
     }
 }

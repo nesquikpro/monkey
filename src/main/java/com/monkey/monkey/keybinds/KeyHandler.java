@@ -8,11 +8,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import org.lwjgl.input.Keyboard;
 
-import static com.monkey.monkey.ModManager.mc;
+import static com.monkey.monkey.Manager.mc;
 
 public class KeyHandler {
-    public static final KeyBinding murderClassic = new KeyBinding("murder mystery", Keyboard.KEY_ADD, "monkey");
-    public static final KeyBinding openGuiKey = new KeyBinding("monkey", Keyboard.KEY_G, "monkey");
+    public static final KeyBinding murderClassic = new KeyBinding("murder mystery", Keyboard.KEY_ADD, "MM");
+    public static final KeyBinding openGuiKey = new KeyBinding("MM", Keyboard.KEY_G, "MM");
 
     public static void register() {
         ClientRegistry.registerKeyBinding(openGuiKey);

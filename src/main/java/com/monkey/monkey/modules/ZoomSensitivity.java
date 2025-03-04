@@ -2,18 +2,19 @@ package com.monkey.monkey.modules;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
 
 public class ZoomSensitivity
 {
+    private final Minecraft mc = Minecraft.getMinecraft();
     public static KeyBinding keybindZoom = null;
+    private boolean wasSmoothCameraEnabled = false;
 
-    @SubscribeEvent
-    public void onZoom(InputEvent.KeyInputEvent e){
-        if(keybindZoom!= null && keybindZoom.isPressed()){
-            Minecraft.getMinecraft().gameSettings.smoothCamera = false;
-        }
+    public ZoomSensitivity() {
+        zoomKeybind();
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     public static void zoomKeybind() {
@@ -22,6 +23,18 @@ public class ZoomSensitivity
                 keybindZoom = keyBinding;
                 break;
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void onCameraSetup(EntityViewRenderEvent.CameraSetup event) {
+        if (keybindZoom != null && keybindZoom.isKeyDown()) {
+            if (!wasSmoothCameraEnabled) {
+                wasSmoothCameraEnabled = mc.gameSettings.smoothCamera;
+            }
+            mc.gameSettings.smoothCamera = false;
+        } else {
+            mc.gameSettings.smoothCamera = wasSmoothCameraEnabled;
         }
     }
 }

@@ -1,15 +1,15 @@
 package com.monkey.monkey.sidebar;
 
-import com.monkey.monkey.ModManager;
+import com.monkey.monkey.Manager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.scoreboard.ScoreObjective;
 import net.minecraftforge.client.GuiIngameForge;
 
 public class GuiSidebarIngame extends GuiIngameForge {
-    private ModManager mod;
+    private Manager mod;
 
-    public GuiSidebarIngame(ModManager mod, Minecraft mc) {
+    public GuiSidebarIngame(Manager mod, Minecraft mc) {
         super(mc);
         this.mod = mod;
     }

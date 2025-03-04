@@ -1,9 +1,9 @@
 package com.monkey.monkey;
 
-import com.monkey.monkey.commands.ClearChatCommand;
+import com.monkey.monkey.commands.CommandClear;
 import com.monkey.monkey.commands.CopCommand;
-import com.monkey.monkey.commands.MMCommand;
-import com.monkey.monkey.commands.SprintCommand;
+import com.monkey.monkey.commands.CommandMM;
+import com.monkey.monkey.commands.CommandSprint;
 import com.monkey.monkey.config.ConfigSetup;
 import com.monkey.monkey.chat.CopyMod;
 import com.monkey.monkey.gui.CrosshairFix;
@@ -11,7 +11,7 @@ import com.monkey.monkey.gui.QuickMod;
 import com.monkey.monkey.gui.TabListMod;
 import com.monkey.monkey.keybinds.SprintHandler;
 import com.monkey.monkey.keybinds.KeyHandler;
-import com.monkey.monkey.mm.monkey;
+import com.monkey.monkey.mm.MM;
 import com.monkey.monkey.modules.BossBarHider;
 import com.monkey.monkey.modules.ZoomSensitivity;
 import com.monkey.monkey.sidebar.GuiSidebar;
@@ -31,7 +31,7 @@ import java.io.File;
 
 
 @Mod(modid = "monkey", version = "1.0")
-public class ModManager {
+public class Manager {
 
     public static final Minecraft mc = Minecraft.getMinecraft();
     private final SprintHandler sprintHandler = new SprintHandler();
@@ -52,7 +52,7 @@ public class ModManager {
         MinecraftForge.EVENT_BUS.register(new KeyHandler());
         KeyHandler.register();
         MinecraftForge.EVENT_BUS.register(new TabListMod());
-        MinecraftForge.EVENT_BUS.register(new monkey());
+        MinecraftForge.EVENT_BUS.register(new MM());
     }
 
     @SubscribeEvent
@@ -63,10 +63,10 @@ public class ModManager {
     }
 
     private void registerCommands() {
-        ClientCommandHandler.instance.registerCommand(new SprintCommand(sprintHandler));
+        ClientCommandHandler.instance.registerCommand(new CommandSprint(sprintHandler));
         ClientCommandHandler.instance.registerCommand(new CopCommand());
-        ClientCommandHandler.instance.registerCommand(new MMCommand());
-        ClientCommandHandler.instance.registerCommand(new ClearChatCommand());
+        ClientCommandHandler.instance.registerCommand(new CommandMM());
+        ClientCommandHandler.instance.registerCommand(new CommandClear());
     }
 
     private void registerEvents() {
@@ -74,9 +74,7 @@ public class ModManager {
         this.ingame = new GuiSidebarIngame(this, mc);
         config = new ConfigSetup(this, new File("config/monkey.cfg"));
         config.loadConfig();
-        ZoomSensitivity zoom = new ZoomSensitivity();
-        ZoomSensitivity.zoomKeybind();
-        MinecraftForge.EVENT_BUS.register(zoom);
+        MinecraftForge.EVENT_BUS.register(new ZoomSensitivity());
         MinecraftForge.EVENT_BUS.register(new CrosshairFix());
         MinecraftForge.EVENT_BUS.register(sprintHandler);
         MinecraftForge.EVENT_BUS.register(new CopyMod());

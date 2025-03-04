@@ -1,16 +1,16 @@
 package com.monkey.monkey.config;
 
-import com.monkey.monkey.ModManager;
+import com.monkey.monkey.Manager;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
 import java.io.File;
 
 public class ConfigSetup {
-    private ModManager mod;
+    private Manager mod;
     private File saveFile;
 
-    public ConfigSetup(ModManager modManager, File saveFile) {
+    public ConfigSetup(Manager modManager, File saveFile) {
         this.mod = modManager;
         this.saveFile = saveFile;
     }

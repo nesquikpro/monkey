@@ -4,10 +4,10 @@ import com.monkey.monkey.keybinds.SprintHandler;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 
-public class SprintCommand extends CommandBase {
+public class CommandSprint extends CommandBase {
     private final SprintHandler sprintHandler;
 
-    public SprintCommand(SprintHandler sprintHandler) {
+    public CommandSprint(SprintHandler sprintHandler) {
         this.sprintHandler = sprintHandler;
     }
 

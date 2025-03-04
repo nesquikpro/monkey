@@ -9,12 +9,12 @@ import java.awt.datatransfer.StringSelection;
 public class CopCommand extends CommandBase {
     @Override
     public String getCommandName() {
-        return "cop";
+        return "copy";
     }
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "/cop";
+        return "/copy";
     }
 
     @Override

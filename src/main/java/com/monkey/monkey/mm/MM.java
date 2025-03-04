@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.*;
 
-public class monkey {
+public class MM {
     private static final Set<String> murders = new HashSet<>();
     private static final Set<String> highlightedPlayers = new HashSet<>();
 
@@ -32,7 +32,7 @@ public class monkey {
             if (playerName.equals(thePlayer.getName())) continue;
             EntityPlayer player = mc.theWorld.getPlayerEntityByName(playerName);
             if (player == null || player.getHeldItem() == null) continue;
-            if (kfsk.isKfSk(player.getHeldItem().getItem()) && murders.add(playerName)) {
+            if (KnifeSkins.isKfSk(player.getHeldItem().getItem()) && murders.add(playerName)) {
                 highlightedPlayers.add(playerName);
                 highlightPlayerInTab(playerName, EnumChatFormatting.RED);
                 thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + playerName));
