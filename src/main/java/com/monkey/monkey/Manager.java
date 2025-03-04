@@ -1,7 +1,7 @@
 package com.monkey.monkey;
 
 import com.monkey.monkey.commands.CommandClear;
-import com.monkey.monkey.commands.CopCommand;
+import com.monkey.monkey.commands.CommandCopy;
 import com.monkey.monkey.commands.CommandMM;
 import com.monkey.monkey.commands.CommandSprint;
 import com.monkey.monkey.config.ConfigSetup;
@@ -64,7 +64,7 @@ public class Manager {
 
     private void registerCommands() {
         ClientCommandHandler.instance.registerCommand(new CommandSprint(sprintHandler));
-        ClientCommandHandler.instance.registerCommand(new CopCommand());
+        ClientCommandHandler.instance.registerCommand(new CommandCopy());
         ClientCommandHandler.instance.registerCommand(new CommandMM());
         ClientCommandHandler.instance.registerCommand(new CommandClear());
     }

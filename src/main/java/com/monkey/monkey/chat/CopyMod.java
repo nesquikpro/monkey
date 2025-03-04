@@ -16,7 +16,7 @@ public class CopyMod {
         if (!unformattedText.replace(" ", "").isEmpty()) {
             ChatComponentText copyText = new ChatComponentText(EnumChatFormatting.DARK_RED + "[M]");
             ChatStyle style = new ChatStyle()
-                    .setChatClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/cop " + unformattedText));
+                    .setChatClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/copy " + unformattedText));
             copyText.setChatStyle(style);
             e.message.appendSibling(new ChatComponentText(EnumChatFormatting.RESET + " "));
             e.message.appendSibling(copyText);

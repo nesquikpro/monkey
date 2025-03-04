@@ -6,7 +6,7 @@ import net.minecraft.command.ICommandSender;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 
-public class CopCommand extends CommandBase {
+public class CommandCopy extends CommandBase {
     @Override
     public String getCommandName() {
         return "copy";
