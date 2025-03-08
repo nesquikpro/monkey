@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.*;
 
-public class MM {
+public class Monkey {
     private static final Set<String> murders = new HashSet<>();
     private static final Set<String> highlightedPlayers = new HashSet<>();
 

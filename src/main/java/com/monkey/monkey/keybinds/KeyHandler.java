@@ -11,9 +11,8 @@ import org.lwjgl.input.Keyboard;
 
 
 public class KeyHandler {
-    public static final KeyBinding murderClassic = new KeyBinding("murder mystery", Keyboard.KEY_ADD, "MM");
-    public static final KeyBinding openGuiKey = new KeyBinding("MM", Keyboard.KEY_G, "MM");
-    private static final Minecraft mc = Minecraft.getMinecraft();
+    public static final KeyBinding murderClassic = new KeyBinding("murder classic", Keyboard.KEY_ADD, "murder mystery");
+    public static final KeyBinding openGuiKey = new KeyBinding("monkey", Keyboard.KEY_G, "murder mystery");
 
     public static void register() {
         ClientRegistry.registerKeyBinding(openGuiKey);
@@ -22,13 +21,14 @@ public class KeyHandler {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
-        if (murderClassic.isPressed() && ServerCheck.isOnHypixel()) {
-            if (mc.thePlayer != null) {
+        Minecraft mc = Minecraft.getMinecraft();
+        if (mc.thePlayer != null && mc.theWorld != null) {
+            if (murderClassic.isPressed() && ServerCheck.isOnHypixel()) {
                 mc.thePlayer.sendChatMessage("/play murder_Classic");
             }
-        }
-        if (openGuiKey.isPressed()) {
-            mc.displayGuiScreen(new QuickMod());
+            if (openGuiKey.isPressed()) {
+                mc.displayGuiScreen(new QuickMod());
+            }
         }
     }
 }

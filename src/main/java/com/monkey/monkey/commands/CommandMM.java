@@ -1,6 +1,6 @@
 package com.monkey.monkey.commands;
 
-import com.monkey.monkey.mm.MM;
+import com.monkey.monkey.mm.Monkey;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
@@ -28,7 +28,7 @@ public class CommandMM extends CommandBase {
     }
 
     public static String getMonkey() {
-        MM.isMonkey = !MM.isMonkey;
-        return MM.isMonkey ? "monkey" : "";
+        Monkey.isMonkey = !Monkey.isMonkey;
+        return Monkey.isMonkey ? "monkey" : "";
     }
 }
