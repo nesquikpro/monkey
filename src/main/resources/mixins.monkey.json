@@ -1,0 +1,10 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.monkey.monkey.mixins",
+  "refmap": "refmap.monkey.json",
+  "mixins": [],
+  "client": [
+    "gui.GuiPlayerTabOverlayMixin",
+    "chat.GuiChatMixin"
+  ]
+}
