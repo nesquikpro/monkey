@@ -14,7 +14,6 @@ public class TabListMod {
 
     private void injectPacketInterceptor(NetworkManager networkManager) {
         ChannelPipeline pipeline = networkManager.channel().pipeline();
-
         pipeline.addBefore("packet_handler", "tablist_blocker", new ChannelInboundHandlerAdapter() {
             @Override
             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

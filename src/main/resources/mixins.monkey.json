@@ -5,6 +5,8 @@
   "mixins": [],
   "client": [
     "gui.GuiPlayerTabOverlayMixin",
-    "chat.GuiChatMixin"
+    "chat.GuiChatMixin",
+    "world.CustomSkyMixin",
+    "world.WorldMixin"
   ]
 }

@@ -6,7 +6,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldSettings;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -49,31 +48,9 @@ public class Monkey {
         }
         this.lastWorld = world;
         if (world == null || Minecraft.getMinecraft().getNetHandler() == null) return;
-        for (String playerName : new HashSet<>(murders)) {
-            if (isSpectator(playerName)) {
-                murders.remove(playerName);
-                highlightedPlayers.remove(playerName);
-            }
-        }
         for (String playerName : highlightedPlayers) {
             highlightPlayerInTab(playerName, EnumChatFormatting.DARK_RED);
         }
-    }
-
-    private boolean isSpectator(String playerName) {
-        NetworkPlayerInfo playerInfo = getPlayerInfo(playerName);
-        if (playerInfo == null) return true;
-        return playerInfo.getGameType() == WorldSettings.GameType.SPECTATOR;
-    }
-
-    private NetworkPlayerInfo getPlayerInfo(String playerName) {
-        Collection<NetworkPlayerInfo> players = Minecraft.getMinecraft().getNetHandler().getPlayerInfoMap();
-        for (NetworkPlayerInfo playerInfo : players) {
-            if (playerInfo.getGameProfile().getName().equals(playerName)) {
-                return playerInfo;
-            }
-        }
-        return null;
     }
 
     public static List<String> getOnlinePlayersByName() {
@@ -107,6 +84,8 @@ public class Monkey {
         } else if (message.equals("Teaming with the Murderers is not allowed!")) {
             isDouble = true;
             isClassic = false;
+        } else if (message.contains("Winner:")) {
+            clearAll();
         }
     }
 

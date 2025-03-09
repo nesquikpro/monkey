@@ -29,6 +29,6 @@ public class CommandMM extends CommandBase {
 
     public static String getMonkey() {
         Monkey.isMonkey = !Monkey.isMonkey;
-        return Monkey.isMonkey ? "monkey" : "";
+        return Monkey.isMonkey ? "monkey" : "yeknom";
     }
 }

@@ -9,8 +9,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
 public class QuickMod extends GuiScreen {
-    private static final Minecraft MINECRAFT = Minecraft.getMinecraft();
-
     @Override
     public void initGui() {
         int centerX = width / 2;
@@ -27,23 +25,24 @@ public class QuickMod extends GuiScreen {
 
     @Override
     protected void actionPerformed(GuiButton button) {
+        Minecraft mc = Minecraft.getMinecraft();
         if(ServerCheck.isOnHypixel()){
             switch (button.id) {
                 case 0:
-                    MINECRAFT.thePlayer.sendChatMessage("/play murder_double_up");
+                    mc.thePlayer.sendChatMessage("/play murder_double_up");
                     break;
                 case 1:
-                    MINECRAFT.thePlayer.sendChatMessage("/play murder_classic");
+                    mc.thePlayer.sendChatMessage("/play murder_classic");
                     break;
                 case 2:
-                    MINECRAFT.thePlayer.sendChatMessage("/party warp");
+                    mc.thePlayer.sendChatMessage("/party warp");
                     break;
                 case 3:
-                    MINECRAFT.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + CommandMM.getMonkey()));
+                    mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + CommandMM.getMonkey()));
                     break;
             }
         }
-        MINECRAFT.displayGuiScreen(null);
+        mc.displayGuiScreen(null);
     }
 
     @Override

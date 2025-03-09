@@ -19,6 +19,7 @@ public class CrosshairFix {
             renderCustomCrosshair();
         }
     }
+
     private void renderCustomCrosshair() {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution sr = new ScaledResolution(mc);

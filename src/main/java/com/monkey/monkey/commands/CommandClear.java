@@ -15,7 +15,7 @@ public class CommandClear extends CommandBase {
         return "/clear";
     }
 
-    public void processCommand(ICommandSender sender, String[] args) throws CommandException {
+    public void processCommand(ICommandSender sender, String[] args){
         Minecraft.getMinecraft().ingameGUI.getChatGUI().clearChatMessages();
     }
 
