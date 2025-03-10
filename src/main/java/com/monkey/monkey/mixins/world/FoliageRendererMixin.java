@@ -23,7 +23,8 @@ public class FoliageRendererMixin {
             Blocks.tallgrass,
             Blocks.double_plant,
             Blocks.red_flower,
-            Blocks.yellow_flower
+            Blocks.yellow_flower,
+            Blocks.wheat
     );
 
     @Inject(method = "renderBlock", at = @At("HEAD"), cancellable = true)
