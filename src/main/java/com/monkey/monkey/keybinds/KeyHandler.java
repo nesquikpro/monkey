@@ -15,15 +15,15 @@ public class KeyHandler {
     public static final KeyBinding openGuiKey = new KeyBinding("monkey", Keyboard.KEY_G, "murder mystery");
 
     public static void register() {
-        ClientRegistry.registerKeyBinding(openGuiKey);
         ClientRegistry.registerKeyBinding(murderClassic);
+        ClientRegistry.registerKeyBinding(openGuiKey);
     }
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
-        if (mc.thePlayer != null && mc.theWorld != null) {
-            if (murderClassic.isPressed() && ServerCheck.isOnHypixel()) {
+        if(ServerCheck.isOnHypixel()){
+            if (murderClassic.isPressed()) {
                 mc.thePlayer.sendChatMessage("/play murder_Classic");
             }
             if (openGuiKey.isPressed()) {

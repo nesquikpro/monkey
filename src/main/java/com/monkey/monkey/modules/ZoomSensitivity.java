@@ -9,6 +9,9 @@ public class ZoomSensitivity
 {
     public static KeyBinding keybindZoom = null;
 
+    public ZoomSensitivity(){
+        zoomKeybind();
+    }
     @SubscribeEvent
     public void onZoom(InputEvent.KeyInputEvent event) {
         if (keybindZoom != null && keybindZoom.isKeyDown()) {

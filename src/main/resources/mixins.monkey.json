@@ -5,8 +5,13 @@
   "mixins": [],
   "client": [
     "gui.GuiPlayerTabOverlayMixin",
+    "gui.CrosshairRendererMixin",
     "chat.GuiChatMixin",
     "world.CustomSkyMixin",
-    "world.WorldMixin"
-  ]
+    "world.WorldMixin",
+    "world.FoliageRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
