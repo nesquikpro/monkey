@@ -1,0 +1,17 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.monkey.monkey.mixins",
+  "refmap": "refmap.monkey.json",
+  "mixins": [],
+  "client": [
+    "gui.GuiPlayerTabOverlayMixin",
+    "gui.CrosshairRendererMixin",
+    "chat.GuiChatMixin",
+    "world.CustomSkyMixin",
+    "world.WorldMixin",
+    "world.FoliageRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
