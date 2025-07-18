@@ -1,3 +1,3 @@
 # monkey
 
-minecraft mods
+MONKEY
