@@ -1,3 +1,1 @@
-# monkey
-
-MONKEY
+# MONKEY
