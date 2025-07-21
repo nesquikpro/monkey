@@ -9,26 +9,38 @@ buildscript {
         classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'org.spongepowered.mixin'
-apply plugin: 'eclipse'
+apply plugin: 'eclipse' // 'idea'
 
 version = mod_version
 group = mod_group
 archivesBaseName = mod_id
 
 sourceCompatibility = targetCompatibility = '1.8'
+
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
+    options.encoding = "UTF-8"
 }
 
 minecraft {
     version = "${minecraft_version}-${forge_version}"
     runDir = "run"
     mappings = mappings_version
+
     String resolved_core_config = mod_mixin_configs.replace('${mod_id}', mod_id)
-    clientRunArgs.addAll('--tweakClass', 'org.spongepowered.asm.launch.MixinTweaker', '--mixin', resolved_core_config)
-    serverRunArgs.addAll('--tweakClass', 'org.spongepowered.asm.launch.MixinTweaker', '--mixin', resolved_core_config)
+
+    clientRunArgs.addAll(
+            '--tweakClass', 'org.spongepowered.asm.launch.MixinTweaker',
+            '--mixin', resolved_core_config
+    )
+
+    serverRunArgs.addAll(
+            '--tweakClass', 'org.spongepowered.asm.launch.MixinTweaker',
+            '--mixin', resolved_core_config
+    )
 }
 
 repositories {
@@ -48,6 +60,9 @@ dependencies {
         exclude module: 'gson'
     }
     annotationProcessor 'org.spongepowered:mixin:0.7.11-SNAPSHOT'
+
+    embed 'com.squareup.okhttp3:okhttp:3.14.9'
+    embed 'com.squareup.okio:okio:1.17.5'
 }
 
 processResources {
@@ -76,7 +91,12 @@ jar {
     from(configurations.embed.collect {
         it.isDirectory() ? it : zipTree(it)
     }) {
-        exclude 'LICENSE.txt', 'META-INF/MANIFSET.MF', 'META-INF/maven/**', 'META-INF/*.RSA', 'META-INF/*.SF'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/maven/**'
+        exclude 'META-INF/*.RSA'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.kotlin_module'
     }
 
     manifest.attributes(
@@ -86,10 +106,4 @@ jar {
             'TweakOrder': '0',
             'MixinConfigs': mod_mixin_configs.replace('${mod_id}', mod_id)
     )
-}
-
-tasks.withType(JavaCompile) {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
-    options.encoding = "UTF-8"
 }

@@ -16,7 +16,6 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-
 @Mod(modid = "monkey", version = "1.0")
 public class Manager {
     private SprintHandler sprintHandler;
@@ -41,6 +40,7 @@ public class Manager {
     private void registerCommands() {
         ClientCommandHandler.instance.registerCommand(new CommandSprint(sprintHandler));
         ClientCommandHandler.instance.registerCommand(new CommandCopy());
+        ClientCommandHandler.instance.registerCommand(new CommandTranslate());
         ClientCommandHandler.instance.registerCommand(new CommandClear());
         ClientCommandHandler.instance.registerCommand(new CommandMM());
     }

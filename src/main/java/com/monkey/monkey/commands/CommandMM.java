@@ -1,6 +1,7 @@
 package com.monkey.monkey.commands;
 
 import com.monkey.monkey.mm.Monkey;
+import com.monkey.monkey.utils.ServerCheck;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
@@ -28,7 +29,10 @@ public class CommandMM extends CommandBase {
     }
 
     public static String getMonkey() {
-        Monkey.isMonkey = !Monkey.isMonkey;
-        return Monkey.isMonkey ? EnumChatFormatting.DARK_RED + "monkey" : EnumChatFormatting.BLACK+ "monkey";
+        if (!ServerCheck.isOnHypixel()) return null;
+        else {
+            Monkey.isMonkey = !Monkey.isMonkey;
+            return Monkey.isMonkey ? EnumChatFormatting.DARK_RED + "monkey" : EnumChatFormatting.BLACK+ "monkey";
+        }
     }
 }
