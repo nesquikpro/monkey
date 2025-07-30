@@ -20,19 +20,15 @@ public class CommandMM extends CommandBase {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
-        sender.addChatMessage(new ChatComponentText(getMonkey()));
+        if (!ServerCheck.isOnHypixel()) {
+            return;
+        }
+        Monkey.isMonkey = !Monkey.isMonkey;
+        sender.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + (Monkey.isMonkey ? "1" : "0")));
     }
 
     @Override
     public int getRequiredPermissionLevel() {
         return 0;
-    }
-
-    public static String getMonkey() {
-        if (!ServerCheck.isOnHypixel()) return null;
-        else {
-            Monkey.isMonkey = !Monkey.isMonkey;
-            return Monkey.isMonkey ? EnumChatFormatting.DARK_RED + "monkey" : EnumChatFormatting.BLACK+ "monkey";
-        }
     }
 }

@@ -11,7 +11,7 @@ import org.lwjgl.input.Keyboard;
 
 
 public class KeyHandler {
-    public static final KeyBinding murderClassic = new KeyBinding("murder classic", Keyboard.KEY_ADD, "murder mystery");
+    public static final KeyBinding murderClassic = new KeyBinding("murder classic", Keyboard.KEY_M, "murder mystery");
     public static final KeyBinding openGuiKey = new KeyBinding("monkey", Keyboard.KEY_G, "murder mystery");
 
     public static void register() {

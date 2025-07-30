@@ -1,12 +1,11 @@
 package com.monkey.monkey.gui;
 
-import com.monkey.monkey.commands.CommandMM;
 import com.monkey.monkey.utils.ServerCheck;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.client.ClientCommandHandler;
 
 public class QuickMod extends GuiScreen {
     @Override
@@ -34,7 +33,7 @@ public class QuickMod extends GuiScreen {
                     mc.thePlayer.sendChatMessage("/play murder_classic");
                     break;
                 case 2:
-                    mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + CommandMM.getMonkey()));
+                    ClientCommandHandler.instance.executeCommand(mc.thePlayer, "/monkey");
                     break;
             }
         }
