@@ -1,0 +1,13 @@
+{
+    "parent": "item/hand",
+    "textures": {
+        "layer0": "items/bow_pulling_0"
+    },
+    "display": {
+        "thirdperson": {
+            "rotation": [ 5, 80, -45 ],
+            "translation": [ 0.75, 0, 0.25 ],
+            "scale": [ 1, 1, 1 ]
+        }
+    }
+}

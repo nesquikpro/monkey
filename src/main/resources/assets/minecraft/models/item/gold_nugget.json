@@ -1,0 +1,13 @@
+{
+    "parent": "item/hand_move_down",
+    "textures": {
+        "layer0": "items/gold_nugget"
+    },
+    "display": {
+        "thirdperson": {
+            "rotation": [ -90, 0, 0 ],
+            "translation": [ 0, 1, -2 ],
+            "scale": [ 0.55, 0.55, 0.55 ]
+        }
+    }
+}
