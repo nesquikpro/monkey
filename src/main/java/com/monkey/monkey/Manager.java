@@ -1,5 +1,6 @@
 package com.monkey.monkey;
 
+import com.monkey.monkey.chat.ChatMod;
 import com.monkey.monkey.command.*;
 import com.monkey.monkey.gui.TabListMod;
 import com.monkey.monkey.keybind.SprintHandler;
@@ -15,7 +16,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "monkey", version = "1.0")
+@Mod(modid = "${mod_id}", version = "${mod_version}")
 public final class Manager {
     private SprintHandler sprintHandler;
 
@@ -45,8 +46,9 @@ public final class Manager {
 
     private void registerEvents() {
         MinecraftForge.EVENT_BUS.register(new BossBarHider());
-        MinecraftForge.EVENT_BUS.register(new TabListMod());
         MinecraftForge.EVENT_BUS.register(new ZoomSensitivity());
+        MinecraftForge.EVENT_BUS.register(new TabListMod());
+        MinecraftForge.EVENT_BUS.register(new ChatMod());
     }
 }
 

@@ -24,7 +24,8 @@ public class CommandCopy extends CommandBase {
         }
 
         String textToCopy = String.join(" ", args);
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(textToCopy), null);
+        Toolkit.getDefaultToolkit().getSystemClipboard()
+                .setContents(new StringSelection(textToCopy), null);
     }
 
     @Override
