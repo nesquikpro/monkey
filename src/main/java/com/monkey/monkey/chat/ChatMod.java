@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ChatMod {
     @SubscribeEvent
-    private void onChatReceived(ClientChatReceivedEvent event) {
+    public void onChatReceived(ClientChatReceivedEvent event) {
         if (event.type == 2) {
             return;
         }
