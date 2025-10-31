@@ -17,8 +17,8 @@ jobs:
 
       - name: Set environment variables from gradle.properties
         run: |
-          echo "MOD_ID=$(grep mod_id gradle.properties | cut -d'=' -f2)" >> $GITHUB_ENV
-          echo "MOD_VERSION=$(grep mod_version gradle.properties | cut -d'=' -f2)" >> $GITHUB_ENV
+          echo "MOD_ID=$(grep mod_id gradle.properties | cut -d'=' -f2 | tr -d '\r')" >> $GITHUB_ENV
+          echo "MOD_VERSION=$(grep mod_version gradle.properties | cut -d'=' -f2 | tr -d '\r')" >> $GITHUB_ENV
 
       - name: Set up Java 8
         uses: actions/setup-java@v4
