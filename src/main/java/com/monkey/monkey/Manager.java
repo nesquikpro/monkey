@@ -17,9 +17,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = "monkey", version = "1.0")
 public final class Manager {
-    @Mod.Instance
-    public static Manager instance;
-
     private SprintHandler sprintHandler;
 
     @EventHandler
