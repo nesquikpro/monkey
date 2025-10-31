@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(targets = "net.optifine.CustomSky", remap = false)
 public abstract class CustomSkyMixin {
     @ModifyVariable(method = "renderSky", at = @At("STORE"), ordinal = 0)
+
     private static long changeWorldTime(long time) {
         return 18000L;
     }

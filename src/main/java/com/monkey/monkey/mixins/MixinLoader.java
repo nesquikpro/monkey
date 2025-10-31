@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixins;
 import java.util.Map;
 
 @IFMLLoadingPlugin.MCVersion("1.8.9")
-public class MixinLoader implements IFMLLoadingPlugin {
+public final class MixinLoader implements IFMLLoadingPlugin {
     public MixinLoader() {
         MixinBootstrap.init();
         Mixins.addConfiguration("mixins.monkey.json");

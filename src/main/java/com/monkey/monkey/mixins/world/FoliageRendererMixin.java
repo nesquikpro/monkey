@@ -28,7 +28,9 @@ public class FoliageRendererMixin {
     );
 
     @Inject(method = "renderBlock", at = @At("HEAD"), cancellable = true)
-    private void patcher$cancelFoliage(IBlockState state, BlockPos pos, IBlockAccess blockAccess, WorldRenderer worldRendererIn, CallbackInfoReturnable<Boolean> cir) {
+    private void patcher$cancelFoliage(IBlockState state, BlockPos pos, IBlockAccess blockAccess,
+                                       WorldRenderer worldRendererIn,
+                                       CallbackInfoReturnable<Boolean> cir) {
         if (patcher$foliageBlocks.contains(state.getBlock())) {
             cir.setReturnValue(false);
         }

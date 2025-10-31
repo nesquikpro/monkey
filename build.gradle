@@ -1,18 +1,17 @@
 buildscript {
     repositories {
         mavenCentral()
-        maven { url = 'http://files.minecraftforge.net/maven' }
+        maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://repo.spongepowered.org/maven' }
     }
     dependencies {
-        classpath files('forgegradle/ForgeGradle-2.1.2.jar')
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
         classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'org.spongepowered.mixin'
-apply plugin: 'eclipse' // 'idea'
 
 version = mod_version
 group = mod_group
@@ -20,9 +19,9 @@ archivesBaseName = mod_id
 
 sourceCompatibility = targetCompatibility = '1.8'
 
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
+tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:-options"
 }
 
 minecraft {
@@ -68,10 +67,10 @@ dependencies {
 processResources {
     inputs.property 'version', project.version
     inputs.property 'mcversion', project.minecraft.version
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-
         expand 'mod_id': mod_id, 'mod_name': mod_name, 'version': project.version,
                 'mcversion': project.minecraft.version
     }

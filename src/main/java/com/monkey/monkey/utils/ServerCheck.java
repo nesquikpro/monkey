@@ -7,24 +7,31 @@ import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 
 
 public class ServerCheck {
-    private static boolean isOnHypixel;
+    private static boolean isOnHypixel = false;
+
+    private static final Minecraft mc = Minecraft.getMinecraft();
 
     private static Minecraft getMinecraftInstance() {
         return Minecraft.getMinecraft();
     }
 
     @SubscribeEvent
-    public void onConnect(FMLNetworkEvent.ClientConnectedToServerEvent e) {
-        final ServerData data = getMinecraftInstance().getCurrentServerData();
-        isOnHypixel = data != null && data.serverIP.contains("hypixel.net");
+    public void onConnect(FMLNetworkEvent.ClientConnectedToServerEvent event) {
+        ServerData data = mc.getCurrentServerData();
+
+        if (data != null && data.serverIP != null) {
+            isOnHypixel = data.serverIP.toLowerCase().contains("hypixel.net");
+        } else {
+            isOnHypixel = false;
+        }
     }
 
     @SubscribeEvent
-    public void onDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent e) {
+    public void onDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent event) {
         isOnHypixel = false;
     }
 
-    public static boolean isOnHypixel(){
+    public static boolean isOnHypixel() {
         return isOnHypixel;
     }
 }

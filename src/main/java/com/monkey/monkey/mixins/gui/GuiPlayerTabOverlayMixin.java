@@ -24,7 +24,8 @@ public class GuiPlayerTabOverlayMixin{
             int y = yPosition + 2;
             GlStateManager.pushMatrix();
             GlStateManager.scale(0.5f, 0.5f, 0.5f);
-            mc.fontRendererObj.drawStringWithShadow("   " + (ping == 0 ? "?" : ping), (2 * x) - 10, 2 * y, 0xFF0000);
+            mc.fontRendererObj.drawStringWithShadow("   " + (ping == 0 ? "?" : ping), (2 * x) - 10,
+                    2 * y, 0xFF0000);
             GlStateManager.scale(2.0f, 2.0f, 2.0f);
             GlStateManager.popMatrix();
             ci.cancel();

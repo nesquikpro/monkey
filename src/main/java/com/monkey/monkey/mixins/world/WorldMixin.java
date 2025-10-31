@@ -16,6 +16,7 @@ public class WorldMixin {
 
     @Redirect(method = {"getMoonPhase", "getCelestialAngle"},
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/storage/WorldInfo;getWorldTime()J"))
+
     private long setTimeForMoonPhase(WorldInfo worldInfo) {
         return this.isRemote ? 18000L : worldInfo.getWorldTime();
     }

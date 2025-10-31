@@ -11,8 +11,12 @@ public class CrosshairRendererMixin {
     @Redirect(
             method = "renderCrosshairs",
             slice = @Slice(from = @At(value = "CONSTANT", args = "intValue=775", ordinal = 0)),
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GlStateManager;tryBlendFuncSeparate(IIII)V", ordinal = 0)
+            at = @At(value = "INVOKE",
+                    target = "Lnet/minecraft/client/renderer/GlStateManager;tryBlendFuncSeparate(IIII)V",
+                    ordinal = 0)
     )
+
     private void patcher$handleCrosshairInvert(int srcFactor, int dstFactor, int srcFactorAlpha, int dstFactorAlpha) {
+
     }
 }
