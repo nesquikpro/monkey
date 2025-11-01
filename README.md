@@ -25,13 +25,14 @@
 
 ## Requirements
 
-| Component      | Version        |
-|----------------|----------------|
-| Minecraft      | 1.8.9          |
-| ForgeGradle    | 2.1            |
-| Mixin          | 0.7.11         |
-| Java           | 8              |
-| Gradle         | 4.10.3         |
+| Component          | Version        |
+|--------------------|----------------|
+| Minecraft Forge    | 1.8.9          |
+| ForgeGradle        | 2.1            |
+| Mixin              | 0.7.11         |
+| Java               | 8              |
+| Gradle             | 4.10.3         |
 
 
 ---
+
