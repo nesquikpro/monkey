@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -20,11 +20,14 @@ public class MurderMystery {
 
     private static final Set<String> murders = new HashSet<>();
     private static final Set<String> highlightedPlayers = new HashSet<>();
+    private static final Map<String, EnumChatFormatting> tabColors = new HashMap<>();
 
     public static boolean isMonkey = false;
-
     private GameMode gameMode = GameMode.NONE;
     private World lastWorld = null;
+
+    private List<String> cachedPlayers = new ArrayList<>();
+    private int playerListUpdateTicks = 0;
 
     @SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent event) {
@@ -34,7 +37,7 @@ public class MurderMystery {
         EntityPlayerSP player = mc.thePlayer;
         if (player == null || mc.theWorld == null) return;
 
-        for (String name : getOnlinePlayers()) {
+        for (String name : cachedPlayers) {
             if (name.equals(player.getName())) continue;
 
             EntityPlayer target = mc.theWorld.getPlayerEntityByName(name);
@@ -63,6 +66,11 @@ public class MurderMystery {
         }
         lastWorld = world;
 
+        if (++playerListUpdateTicks >= 20) {
+            cachedPlayers = getOnlinePlayers();
+            playerListUpdateTicks = 0;
+        }
+
         for (String name : highlightedPlayers) {
             highlightPlayerInTab(name, EnumChatFormatting.DARK_RED);
         }
@@ -70,19 +78,20 @@ public class MurderMystery {
 
     @SubscribeEvent
     public void onChatMessage(ClientChatReceivedEvent event) {
-        if (!isMonkey) return;
-
-        if (event.message == null) return; // NPE
+        if (!isMonkey || event.message == null) return;
 
         String message = event.message.getUnformattedText();
         if (message == null) return;
 
         message = message.trim();
 
-        if (message.equals("Teaming with the Murderer is not allowed!")
-                || message.equals("Teaming with the Detective/Innocents is not allowed!")) {
+        if (message.equalsIgnoreCase(
+                "Teaming with the Murderer is not allowed!")
+                || message.equalsIgnoreCase(
+                        "Teaming with the Detective/Innocents is not allowed!")) {
             gameMode = GameMode.CLASSIC;
-        } else if (message.equals("Teaming with the Murderers is not allowed!")) {
+        } else if (message.equalsIgnoreCase(
+                "Teaming with the Murderers is not allowed!")) {
             gameMode = GameMode.DOUBLE;
         } else if (message.startsWith("Winner:")) {
             clearAll();
@@ -104,9 +113,12 @@ public class MurderMystery {
         Minecraft mc = Minecraft.getMinecraft();
         if (mc.getNetHandler() == null) return;
 
+        if (color.equals(tabColors.get(name))) return;
+
         for (NetworkPlayerInfo info : mc.getNetHandler().getPlayerInfoMap()) {
             if (info.getGameProfile().getName().equals(name)) {
                 info.setDisplayName(new ChatComponentText(color + name));
+                tabColors.put(name, color);
                 break;
             }
         }
@@ -115,6 +127,7 @@ public class MurderMystery {
     private void clearAll() {
         murders.clear();
         highlightedPlayers.clear();
+        tabColors.clear();
         gameMode = GameMode.NONE;
     }
 }
