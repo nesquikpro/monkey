@@ -1,7 +1,7 @@
 package com.monkey.monkey.keybind;
 
 import com.monkey.monkey.gui.GuiQuickMod;
-import com.monkey.monkey.utils.ServerCheck;
+import com.monkey.monkey.utils.ServerChecker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -26,7 +26,7 @@ public class KeyHandler {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
-        if (!ServerCheck.isOnHypixel()) {
+        if (!ServerChecker.isOnHypixel()) {
             return;
         }
 

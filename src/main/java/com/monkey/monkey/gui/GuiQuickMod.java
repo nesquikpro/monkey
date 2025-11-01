@@ -1,6 +1,6 @@
 package com.monkey.monkey.gui;
 
-import com.monkey.monkey.utils.ServerCheck;
+import com.monkey.monkey.utils.ServerChecker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -29,7 +29,7 @@ public class GuiQuickMod extends GuiScreen {
     protected void actionPerformed(GuiButton button) {
         Minecraft mc = Minecraft.getMinecraft();
 
-        if(ServerCheck.isOnHypixel()){
+        if(ServerChecker.isOnHypixel()){
             switch (button.id) {
                 case BUTTON_DOUBLE_UP:
                     mc.thePlayer.sendChatMessage("/play murder_double_up");

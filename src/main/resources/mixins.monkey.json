@@ -4,12 +4,12 @@
   "refmap": "refmap.monkey.json",
   "mixins": [],
   "client": [
-    "gui.GuiPlayerTabOverlayMixin",
-    "gui.CrosshairRendererMixin",
+    "render.GuiPlayerTabOverlayMixin",
+    "render.CrosshairRendererMixin",
     "chat.GuiChatMixin",
-    "world.CustomSkyMixin",
-    "world.WorldMixin",
-    "world.FoliageRendererMixin"
+    "render.CustomSkyMixin",
+    "render.WorldMixin",
+    "render.FoliageRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

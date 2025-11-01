@@ -6,9 +6,9 @@ import com.monkey.monkey.gui.TabListMod;
 import com.monkey.monkey.keybind.SprintHandler;
 import com.monkey.monkey.keybind.KeyHandler;
 import com.monkey.monkey.mm.MurderMystery;
-import com.monkey.monkey.moduls.BossBarHider;
-import com.monkey.monkey.moduls.ZoomSensitivity;
-import com.monkey.monkey.utils.ServerCheck;
+import com.monkey.monkey.modules.BossBarHider;
+import com.monkey.monkey.modules.ZoomSensitivity;
+import com.monkey.monkey.utils.ServerChecker;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "${mod_id}", version = "${mod_version}")
+@Mod(modid = "monkey", name = "monkey", version = "1.0")
 public final class Manager {
     private SprintHandler sprintHandler;
 
@@ -27,7 +27,7 @@ public final class Manager {
         MinecraftForge.EVENT_BUS.register(sprintHandler);
         MinecraftForge.EVENT_BUS.register(new KeyHandler());
         KeyHandler.register();
-        MinecraftForge.EVENT_BUS.register(new ServerCheck());
+        MinecraftForge.EVENT_BUS.register(new ServerChecker());
         MinecraftForge.EVENT_BUS.register(new MurderMystery());
     }
 
@@ -38,10 +38,10 @@ public final class Manager {
     }
 
     private void registerCommands() {
-        ClientCommandHandler.instance.registerCommand(new CommandSprint(sprintHandler));
-        ClientCommandHandler.instance.registerCommand(new CommandCopy());
-        ClientCommandHandler.instance.registerCommand(new CommandClear());
-        ClientCommandHandler.instance.registerCommand(new CommandMM());
+        ClientCommandHandler.instance.registerCommand(new SprintCommand(sprintHandler));
+        ClientCommandHandler.instance.registerCommand(new CopyCommand());
+        ClientCommandHandler.instance.registerCommand(new ClearCommand());
+        ClientCommandHandler.instance.registerCommand(new MMCommand());
     }
 
     private void registerEvents() {
