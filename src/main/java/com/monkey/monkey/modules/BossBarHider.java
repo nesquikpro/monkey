@@ -8,16 +8,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class BossBarHider
 {
-    private boolean enabled = true;
-
     @SubscribeEvent
-    public void onRenderGameOverlay(RenderGameOverlayEvent.Pre event) {
-        if (!enabled) {
-            return;
-        }
-
-        if (event.type == RenderGameOverlayEvent.ElementType.BOSSHEALTH) {
-            event.setCanceled(true);
+    public void onRenderGameOverlay(RenderGameOverlayEvent e){
+        if(e.type == RenderGameOverlayEvent.ElementType.BOSSHEALTH){
+            e.setCanceled(true);
         }
     }
 }
