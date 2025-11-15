@@ -9,7 +9,8 @@
     "chat.GuiChatMixin",
     "render.CustomSkyMixin",
     "render.WorldMixin",
-    "render.FoliageRendererMixin"
+    "render.FoliageRendererMixin",
+    "render.GuiNewChatMixin"
   ],
   "injectors": {
     "defaultRequire": 1
