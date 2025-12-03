@@ -48,7 +48,7 @@ public class MurderMystery {
 
             if (KnifeSkins.isKnifeSkin(held.getItem()) && murders.add(name)) {
                 highlightedPlayers.add(name);
-                highlightPlayerInTab(name, EnumChatFormatting.RED);
+                highlightPlayerInTab(name, EnumChatFormatting.DARK_RED);
                 player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + name));
             }
         }
