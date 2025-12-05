@@ -7,11 +7,11 @@ import net.minecraft.command.ICommandSender;
 public class ClearCommand extends CommandBase {
 
     public String getCommandName() {
-        return "clear";
+        return "cc";
     }
 
     public String getCommandUsage(ICommandSender sender) {
-        return "/clear";
+        return "/cc";
     }
 
     public void processCommand(ICommandSender sender, String[] args) {
