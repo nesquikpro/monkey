@@ -10,7 +10,8 @@
     "render.CustomSkyMixin",
     "render.WorldMixin",
     "render.FoliageRendererMixin",
-    "render.GuiNewChatMixin"
+    "render.GuiNewChatMixin",
+    "render.MixinGuiInGame"
   ],
   "injectors": {
     "defaultRequire": 1
