@@ -126,7 +126,7 @@ public class MurderMystery {
 
             Minecraft mc = Minecraft.getMinecraft();
             if (mc.thePlayer != null) {
-                mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + name + " is a murderer"));
+                mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + name));
             }
         } else {
             highlightedPlayers.add(nameLower);
