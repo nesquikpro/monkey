@@ -26,7 +26,6 @@ public class MurderMystery {
 
     private final Set<String> murders = new HashSet<>();
     private final Set<String> highlightedPlayers = new HashSet<>();
-    private final Map<String, EnumChatFormatting> tabColors = new HashMap<>();
     private final Map<String, IChatComponent> originalNames = new HashMap<>();
 
     private List<String> cachedPlayers = new ArrayList<>();
@@ -79,7 +78,7 @@ public class MurderMystery {
         if (mc.getNetHandler() != null) {
             for (String name : new HashSet<>(highlightedPlayers)) {
                 if (name == null) continue;
-                highlightPlayerInTab(name, EnumChatFormatting.DARK_RED);
+                highlightPlayerInTab(name);
             }
         }
     }
@@ -123,7 +122,7 @@ public class MurderMystery {
             murders.add(nameLower);
             highlightedPlayers.add(nameLower);
 
-            highlightPlayerInTab(name, EnumChatFormatting.DARK_RED);
+            highlightPlayerInTab(name);
 
             Minecraft mc = Minecraft.getMinecraft();
             if (mc.thePlayer != null) {
@@ -134,8 +133,8 @@ public class MurderMystery {
         }
     }
 
-    private void highlightPlayerInTab(String name, EnumChatFormatting color) {
-        if (name == null || color == null) return;
+    private void highlightPlayerInTab(String name) {
+        if (name == null) return;
 
         Minecraft mc = Minecraft.getMinecraft();
         if (mc.getNetHandler() == null) return;
@@ -157,8 +156,7 @@ public class MurderMystery {
                     }
                 }
 
-                info.setDisplayName(new ChatComponentText(color + profileName));
-                tabColors.put(nameLower, color);
+                info.setDisplayName(new ChatComponentText(EnumChatFormatting.DARK_RED + profileName));
                 return;
             }
         }
@@ -193,7 +191,6 @@ public class MurderMystery {
     private void clearAll() {
         murders.clear();
         highlightedPlayers.clear();
-        tabColors.clear();
         gameMode = GameMode.NONE;
 
         restoreOriginalTabNames();
