@@ -41,6 +41,7 @@ public final class Manager {
         ClientCommandHandler.instance.registerCommand(new SprintCommand(sprintHandler));
         ClientCommandHandler.instance.registerCommand(new CopyCommand());
         ClientCommandHandler.instance.registerCommand(new ClearCommand());
+        ClientCommandHandler.instance.registerCommand(new FovCommand());
         ClientCommandHandler.instance.registerCommand(new MMCommand());
     }
 
