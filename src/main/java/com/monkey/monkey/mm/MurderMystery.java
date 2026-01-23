@@ -20,6 +20,7 @@ import java.util.*;
 public class MurderMystery {
 
     public static boolean isMonkey = false;
+    public static boolean isAutoMonkey = false;
 
     private GameMode gameMode = GameMode.NONE;
     private World lastWorld = null;
@@ -127,6 +128,10 @@ public class MurderMystery {
             Minecraft mc = Minecraft.getMinecraft();
             if (mc.thePlayer != null) {
                 mc.thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + name));
+
+                if (isAutoMonkey) {
+                    mc.thePlayer.sendChatMessage("/pc " + name);
+                }
             }
         } else {
             highlightedPlayers.add(nameLower);

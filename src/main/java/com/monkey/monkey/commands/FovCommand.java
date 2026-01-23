@@ -1,4 +1,4 @@
-package com.monkey.monkey.command;
+package com.monkey.monkey.commands;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
