@@ -7,6 +7,7 @@ import com.monkey.monkey.keybinds.SprintHandler;
 import com.monkey.monkey.keybinds.KeyHandler;
 import com.monkey.monkey.mm.MurderMystery;
 import com.monkey.monkey.modules.BossBarHider;
+import com.monkey.monkey.modules.FullBrightEventHandler;
 import com.monkey.monkey.modules.ZoomSensitivity;
 import com.monkey.monkey.utils.ServerChecker;
 import net.minecraftforge.client.ClientCommandHandler;
@@ -49,6 +50,7 @@ public final class App {
     private void registerEvents() {
         MinecraftForge.EVENT_BUS.register(new BossBarHider());
         MinecraftForge.EVENT_BUS.register(new ZoomSensitivity());
+        MinecraftForge.EVENT_BUS.register(new FullBrightEventHandler());
         MinecraftForge.EVENT_BUS.register(new TabListMod());
         MinecraftForge.EVENT_BUS.register(new ChatMod());
     }
