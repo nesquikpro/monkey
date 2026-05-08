@@ -45,7 +45,6 @@ public final class App {
         ClientCommandHandler.instance.registerCommand(new FovCommand());
         ClientCommandHandler.instance.registerCommand(new MonkeyCommand());
         ClientCommandHandler.instance.registerCommand(new AutoMonkeyCommand());
-        ClientCommandHandler.instance.registerCommand(new TranslateCommand());
     }
 
     private void registerEvents() {

@@ -32,7 +32,6 @@ public class MurderMystery {
     private List<String> cachedPlayers = new ArrayList<>();
     private int playerListUpdateTicks = 0;
 
-    // Частота обновления списка игроков. 20 тиков ~= 1 секунда.
     private static final int PLAYER_REFRESH_TICKS = 20;
 
     @SubscribeEvent
