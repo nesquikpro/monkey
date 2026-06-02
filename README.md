@@ -8,34 +8,34 @@
 
 ##  Mods
 
-|                                       |                                                           |
-|---------------------------------------|-----------------------------------------------------------|
-| **AutoSprint**                        | Автоматический спринт без необходимости удерживать клавишу |
-| **Clear Chat Messages**               | Очистка сообщений из чата                                 |
-| **Copy Chat Message**                 | Возможность скопировать сообщение прямо из чата           |
-| **Remove Footer & Header (Tab List)** | Убирает верхний и нижний баннер в списке игроков TAB      |
-| **Custom GUI**                        | Для сервера Hypixel (QuickMod)                            |
-| **Chat ❤ Replacer**                   | Автоматически заменяет `<3` на ❤️ при вводе               |
-| **Remove Crosshair Blend**            | Убирает размытие/перекрытие цветов у прицела              |
-| **Player Ping in Tab List**           | Отображает пинг игроков в списке TAB                      |
-| **Always Night Mode**                 | Меняет время в мире на постоянную ночь                    |
-| **No Foliage Render**                 | Убирает листву, траву и растительность для FPS и видимости |
-| **Remove red numbers in Scoreboard**  | Удаляет красные цифры (очки) в Scoreboard                 |
+|                                       |                                                                      |
+|---------------------------------------|----------------------------------------------------------------------|
+| **AutoSprint**                        | Automatic sprint without having to hold down a key                   |
+| **Clear Chat Messages**               | Deleting messages from a chat                                        |
+| **Copy Chat Message**                 | The ability to copy a message directly from the chat                 |
+| **Remove Footer & Header (Tab List)** | Removes the top and bottom banners from the TAB player list          |
+| **Custom GUI**                        | For the Hypixel server (QuickMod)                                    |
+| **Chat ❤ Replacer**                   | Automatically replaces <3 with ❤️ as you type                        |
+| **Remove Crosshair Blend**            | Removes blurring/color overlap in the crosshairs                     |
+| **Player Ping in Tab List**           | Displays players' ping in the TAB list                               |
+| **Always Night Mode**                 | Turns the world into a never-ending night                            |
+| **No Foliage Render**                 | Removes leaves, grass, and vegetation to improve FPS and visibility  |
+| **Remove red numbers in Scoreboard**  | Removes red numbers (points) from the scoreboard                     |
 
 ##  Murder Mystery Mod
 
-## Возможности
+## Features
 
-- **Подсветка в табе** — ник убийцы становится тёмно-красным
-- **Оповещение в чат** — мод пишет имя убийцы в чат
-- Поддержка режимов **Classic** и **Double**
+- **Highlight in the scoreboard** — the killer's nickname turns dark red
+- **Chat notification** — the mod posts the killer's name in the chat
+- Support for **Classic** and **Double** modes
 
-## Как работает
+## How it works
 
-Каждую секунду мод сканирует игроков в мире и проверяет,
-держат ли они в руках предмет со скином ножа.
-Если нож обнаружен — игрок помечается как убийца,
-подсвечивается в табе и выводится сообщение в чат.
+Every second, the mod scans players in the world to check
+whether they are holding an item with a knife skin.
+If a knife is detected, the player is marked as a killer,
+highlighted in the scoreboard, and a message is posted in the chat.
 
 ## Requirements
 
